@@ -1,18 +1,18 @@
 # Project 7: React Gallery App
-A single page image gallery app  created using the React library.
+A single page image gallery app  created using the React library.<br />
+<br />
+NOTE: You must obtain and use your own Flickr API key.<br />
+Create a config.js file under src folder.<br />
+config.js should contain two lines:<br />
+  const API_KEY = 'XXXXXXXXXXXXXX'; // insert your own API key here<br />
+  export default API_KEY;<br />
+<br />
+In the Terminal, run npm start<br />
+View on localhost:3000<br />
+<br />
 
-NOTE: You must obtain and use your own Flickr API key.
-Create a config.js file under src folder.
-config.js should contain two lines:
-  const API_KEY = 'XXXXXXXXXXXXXX'; // insert your own API key here
-  export default API_KEY;
 
-In the Terminal, run npm start
-View on localhost:3000
-
-
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).<br />
 
 ## Available Scripts
 
