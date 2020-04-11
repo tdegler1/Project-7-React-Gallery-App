@@ -3,12 +3,13 @@ import {BrowserRouter,Route,Switch,Redirect} from 'react-router-dom';
 import axios from 'axios';
 import apiKey from './config';
 
+// Import the components
 import SearchForm from './Components/SearchForm';
 import Nav from './Components/Nav';
 import PhotoContainer from './Components/PhotoContainer';
 import Error404 from './Components/Error404';
 
-
+// Initialize states for the App component
 class App extends Component {
   state = {
     photos: [],
@@ -16,15 +17,17 @@ class App extends Component {
     beach: [],
     coffee: [],
     query: '',
-    loading: true
+    loading: true,
   }
 
+// Runs when the app first launches; requests data for three main topics.
   componentDidMount() {
     this.performSearch('dogs');
     this.performSearch('beach');
     this.performSearch('coffee');
   }
     
+// Uses Axios to fetch data from the Flickr API based on the query. If one of the three main topic buttons are selected for the query, returns image data and set the state for that topic. If Search field was used, return image data and set the state for "other topic" photos.
    performSearch = (query) => {
     axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1&content_type=1`)
       .then(response => {
@@ -45,9 +48,7 @@ class App extends Component {
       })
   }
     
-    
   render() {
-      console.log("Photos: " + this.state.photos)
     return (
       <BrowserRouter>
         <div className='container'>
@@ -55,13 +56,13 @@ class App extends Component {
           <Nav />
           {
             (this.state.loading)
-              ? <p>Loading...</p>
+              ? <p>Loading...</p> 
               : <Switch>
                 <Route exact path='/' render={() => <Redirect to="/dogs" />} />
-                <Route path='/dogs' render={() => <PhotoContainer data={this.state.dogs} />} />
-                <Route path='/beach' render={() => <PhotoContainer data={this.state.beach} />} />
-                <Route path='/coffee' render={() => <PhotoContainer data={this.state.coffee} />} />
-                <Route path='/search/:query' render={() => <PhotoContainer data={this.state.photos} />} />
+                <Route path="/dogs" render={() => <PhotoContainer data={this.state.dogs} query="dogs" />} />
+                <Route path="/beach" render={(props) => <PhotoContainer data={this.state.beach} query="beach" />} />
+                <Route path="/coffee" render={(props) => <PhotoContainer data={this.state.coffee} query="coffee" />} />
+                <Route path="/search/:query" render={(props) => <PhotoContainer data={this.state.photos} query={this.state.query} />} />
                 <Route component={Error404} />
               </Switch>
           }
