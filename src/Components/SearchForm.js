@@ -1,25 +1,28 @@
+// Search component updates the query to be used in app.js
 import React, { Component } from 'react';
-import { Redirect, Route } from 'react-router-dom';
+import { Redirect} from 'react-router-dom';
 
 class SearchForm extends Component {
- 
   state = {
-    searchText: ''
+    searchText: '',
+    searched: false
   }
   
   onSearchChange = e => {
-    this.setState({ searchText: e.target.value });
+    this.setState({ searchText: e.target.value }); // update the searchText (query) whenever there is a change in the Search input field.
   }
   
   handleSubmit = e => {
     e.preventDefault();
     this.props.onSearch(this.query.value);
+    this.setState({searched: true});
     e.currentTarget.reset();
   }
   
   render() {  
     return (
       <form className="search-form" onSubmit={this.handleSubmit} >
+        {this.state.searched ? <Redirect to={`/search/${this.state.searchText}`} /> : null}
         <input type="search" 
             onChange={this.onSearchChange}
             name="search" 

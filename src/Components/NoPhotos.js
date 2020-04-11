@@ -1,3 +1,4 @@
+// Displays a user-friendly message when the search topic is not found.
 import React from 'react';
 
 const NoPhotos = props => (
