@@ -1,7 +1,7 @@
 # Project 7: React Gallery App
 A single page image gallery app  created using the React library.<br />
 <br />
-1) download clone from my Github<br />
+1) Download clone from my Github<br />
 2) In Terminal, run 'npm install' to install dependencies<br />
 3) NOTE: You must obtain and use your own Flickr API key.<br />
 Create a config.js file under src folder.<br />
