@@ -1,13 +1,20 @@
 body {
   text-align: center;
-  font-family: 'Open Sans', sans-serif;
-  color: #3f4850;
+  font-family: 'Montserrat Light', 'Open Sans', sans-serif;
+  /*color: #3f4850;*/
+  color: #717171;
 }
-
-h2 {
-  font-size: 2em;
-  margin: 52px 0 40px;
+h1 {
+  font-size: 3em;
+  font-family: 'Satisfy','Open Sans', serif;
   text-transform: capitalize;
+  color: #4F6D7A;
+}
+h2 {
+  font-size: 2.5em;
+  margin: 20px 0 40px;
+  text-transform: capitalize;
+  font-family: 'Montserrat Light', 'Open Sans',  sans-serif;
 }
 
 ul {
@@ -27,7 +34,8 @@ a {
 
 .search-form button {
   outline: none;
-  background-color: #438bbd;
+/*  background-color: #438bbd*/;
+  background-color: #B7BFA4;
   border: none;
   padding: 0px 15px;
   border-radius: 0 0.35em 0.35em 0;
@@ -52,16 +60,19 @@ input {
 
 .main-nav a {
   display: block;
-  background: #438bbd;
+/*  background: #438bbd;*/
+  background-color: #B7BFA4;
   border-radius: 3px;
   padding: 5px;
   color: #fff;
+  text-transform: uppercase;
 }
 
 .main-nav .active,
 .main-nav a:hover,
 .search-form button:hover {
-  background-color: #275270;
+  /*background-color: #275270;*/
+  background-color: #969D87;
 }
 
 .photo-container ul {
