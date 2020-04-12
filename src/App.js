@@ -4,6 +4,7 @@ import axios from 'axios';
 import apiKey from './config';
 
 // Import the components
+import Headline from './Components/Headline';
 import SearchForm from './Components/SearchForm';
 import Nav from './Components/Nav';
 import PhotoContainer from './Components/PhotoContainer';
@@ -29,6 +30,7 @@ class App extends Component {
     
 // Uses Axios to fetch data from the Flickr API based on the query. If one of the three main topic buttons are selected for the query, returns image data and set the state for that topic. If Search field was used, return image data and set the state for "other topic" photos.
    performSearch = (query) => {
+    this.setState({ loading: true });
     axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1&content_type=1`)
       .then(response => {
         if (query === 'dogs') {
@@ -52,6 +54,7 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div className='container'>
+          <Headline />
           <SearchForm onSearch={this.performSearch} /> 
           <Nav />
           {
