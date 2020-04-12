@@ -15,6 +15,7 @@ class PhotoContainer extends Component {
         <Photo url={`https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`} key={photo.id} />);
     // If the data results are blank, display the NoPhotos component with friendly error message.
     } else {
+      title = "";
       photos = <NoPhotos />
     }
 
